@@ -1,0 +1,12 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.1
+      - name: Build app for release
+        run: msbuild /p:platform=win32 /p:Configuration=Release

@@ -12,29 +12,29 @@ struct Key {
     LPCWSTR label;
 };
 struct Key specialKeys[] = {
-    {0x08, L"Backspace"},                 // back
-    {0x09, L"Tab"},
+    {0x08, L"Retroceso"},                 // back
+    {0x09, L"Tabulador"},
     {0x0C, L"Clear"},
     {0x0D, L"Enter"},              // enter
     {0x10, L"Shift"},
     {0x11, L"Control"},
     {0x12, L"Menu"},
-    {0x13, L"Pause"},
-    {0x14, L"CapsLock"},
+    {0x13, L"Pausa"},
+    {0x14, L"BloqMayús"},
     {0x15, L"Kana"},
     {0x17, L"Junja"},
-    {0x18, L"Final"},
+    {0x18, L"Fin"},
     {0x19, L"Kanji"},
     {0x1B, L"Esc"},               // escape
     {0x1C, L"Convert"},
     {0x1D, L"Nonconvert"},
     {0x1E, L"Accept"},
     {0x1F, L"ModeChange"},
-    {0x20, L"Space"},              // space
-    {0x21, L"PageUp"},
-    {0x22, L"PageDown"},
-    {0x23, L"End"},
-    {0x24, L"Home"},
+    {0x20, L"Espacio"},              // space
+    {0x21, L"RePag"},
+    {0x22, L"AvPag"},
+    {0x23, L"Fin"},
+    {0x24, L"Inicio"},
     {0x25, L"\u2190"},              // left
     {0x26, L"\u2191"},              // up
     {0x27, L"\u2192"},              // right
@@ -44,18 +44,18 @@ struct Key specialKeys[] = {
     {0x2B, L"Execute"},
     {0x2C, L"Snapshot"},
     {0x2D, L"Insert"},
-    {0x2E, L"Delete"},
+    {0x2E, L"Supr"},
     {0x2F, L"Help"},
     {0x5B, L"Win"},
     {0x5C, L"Win"},
     {0x5D, L"Apps"},
     {0x5F, L"Sleep"},
-    {0x6A, L"Multiply"},
-    {0x6B, L"Add"},
+    {0x6A, L"Multiplicar(*)"},
+    {0x6B, L"Sumar(+)"},
     {0x6C, L"Separator"},
-    {0x6D, L"Subtract"},
-    {0x6E, L"Decimal"},
-    {0x6F, L"Divide"},
+    {0x6D, L"Restar(-)"},
+    {0x6E, L"Decimal(.)"},
+    {0x6F, L"Dividir(/)"},
     {0x70, L"F1"},
     {0x71, L"F2"},
     {0x72, L"F3"},
@@ -80,8 +80,8 @@ struct Key specialKeys[] = {
     {0x85, L"F22"},
     {0x86, L"F23"},
     {0x87, L"F24"},
-    {0x90, L"NumLock"},
-    {0x91, L"ScrollLock"},
+    {0x90, L"BloqNum"},
+    {0x91, L"BloqDespl"},
     {0xA0, L"Shift"},
     {0xA1, L"Shift"},
     {0xA2, L"Ctrl"},
@@ -135,25 +135,25 @@ struct Key specialKeys[] = {
 size_t nSpecialKeys = sizeof(specialKeys) / sizeof(Key);
 
 LPCWSTR mouseActions[] = {
-    L"MouseMove",
-    L"LButtonDown",
-    L"LButtonUp",
-    L"LButtonDBLCLK",
-    L"RButtonDown",
-    L"RButtonUp",
-    L"RButtonDBLCLK",
-    L"MButtonDown",
-    L"MButtonUp",
-    L"MButtonDBLCLK",
-    L"MouseWheel",
+    L"MoverMouse",
+    L"ClickIzqAb",
+    L"ClickIzqArr",
+    L"DobleClickIzq",
+    L"ClickDerAb",
+    L"ClickDerArr",
+    L"DobleClickDer",
+    L"RuedaAbajo",
+    L"RuedaArriba",
+    L"RuedaDobleClick",
+    L"Rueda",
     L"XButtonDown",
     L"XButtonUp",
     L"XButtonDBLCLK",
-    L"MouseHWheel"
+    L"Rueda"
 };
 LPCWSTR mouseClicks[] = {
-    L"LClick",
-    L"RClick",
+    L"ClickIzquierdo",
+    L"ClickDerecho",
     L"MClick"
 };
 LPCWSTR mouseDblClicks[] = {

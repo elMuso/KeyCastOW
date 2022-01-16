@@ -20,7 +20,7 @@ struct Key specialKeys[] = {
     {0x11, L"Control"},
     {0x12, L"Menu"},
     {0x13, L"Pausa"},
-    {0x14, L"BloqMayús"},
+    {0x14, L"BloqMayus"},
     {0x15, L"Kana"},
     {0x17, L"Junja"},
     {0x18, L"Fin"},
@@ -42,7 +42,7 @@ struct Key specialKeys[] = {
     {0x29, L"Select"},
     {0x2A, L"Print"},
     {0x2B, L"Execute"},
-    {0x2C, L"Snapshot"},
+    {0x2C, L"ImrpanPetSis"},
     {0x2D, L"Insert"},
     {0x2E, L"Supr"},
     {0x2F, L"Help"},
@@ -145,21 +145,21 @@ LPCWSTR mouseActions[] = {
     L"RuedaAbajo",
     L"RuedaArriba",
     L"RuedaDobleClick",
-    L"Rueda",
+    L"Desliza",
     L"XButtonDown",
     L"XButtonUp",
     L"XButtonDBLCLK",
-    L"Rueda"
+    L"Desliza"
 };
 LPCWSTR mouseClicks[] = {
     L"ClickIzquierdo",
     L"ClickDerecho",
-    L"MClick"
+    L"ClickRueda"
 };
 LPCWSTR mouseDblClicks[] = {
-    L"LDblClick",
-    L"RDblClick",
-    L"MDblClick"
+    L"DobleClickIzq",
+    L"DobleClickDer",
+    L"DobleClickRueda"
 };
 
 size_t nMouseActions = sizeof(mouseActions) / sizeof(LPCWSTR);
@@ -395,7 +395,7 @@ LRESULT CALLBACK LLMouseProc(int nCode, WPARAM wp, LPARAM lp)
 
         if (!(ms->flags & LLMHF_INJECTED)) {
             if(idx == 10) {
-                swprintf(c, 64, (int)(ms->mouseData) > 0 ? L"%sUp" : L"%sDown", mouseActions[idx]);
+                swprintf(c, 64, (int)(ms->mouseData) > 0 ? L"%sArriba" : L"%sAbajo", mouseActions[idx]);
             } else if(mergeMouseActions) {
                 switch (idx) {
                     case 1:

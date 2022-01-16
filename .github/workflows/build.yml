@@ -10,3 +10,8 @@ jobs:
         uses: microsoft/setup-msbuild@v1.1
       - name: Build app for release
         run: msbuild /p:platform=win32 /p:Configuration=Release
+      - name: Upload exe
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: D:\a\KeyCastOW\KeyCastOW\Release\keycastow.exe

@@ -945,7 +945,9 @@ LRESULT CALLBACK DraggableWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     {
         // hold mouse to move
         case WM_LBUTTONDOWN:
+            SetCapture(hWnd);
             GetCursorPos(&s_last_mouse);
+            // showTimer.Stop();
             break;
         case WM_MOUSEMOVE:
                 POINT p;
@@ -961,8 +963,8 @@ LRESULT CALLBACK DraggableWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM
                 }
             break;
         case WM_LBUTTONUP:
-            ReleaseCapture();
-            showTimer.Start(SHOWTIMER_INTERVAL);
+            // ReleaseCapture();
+            // showTimer.Start(SHOWTIMER_INTERVAL);
             break;
         case WM_LBUTTONDBLCLK:
             SendMessage( hMainWnd, WM_COMMAND, MENU_CONFIG, 0 );

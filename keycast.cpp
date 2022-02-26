@@ -1096,7 +1096,7 @@ LRESULT CALLBACK WindowFunc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
         case WM_LBUTTONDOWN:
             SetCapture(hWnd);
             GetCursorPos(&s_last_mouse);
-            showTimer.Stop();
+            // showTimer.Stop();
             break;
         case WM_MOUSEMOVE:
             if (GetCapture()==hWnd)
@@ -1113,8 +1113,8 @@ LRESULT CALLBACK WindowFunc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
             }
             break;
         case WM_LBUTTONUP:
-            ReleaseCapture();
-            showTimer.Start(100);
+            // ReleaseCapture();
+            // showTimer.Start(100);
             break;
         default:
             return DefWindowProc(hWnd, message, wParam, lParam);

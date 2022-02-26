@@ -945,13 +945,9 @@ LRESULT CALLBACK DraggableWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     {
         // hold mouse to move
         case WM_LBUTTONDOWN:
-            SetCapture(hWnd);
             GetCursorPos(&s_last_mouse);
-            showTimer.Stop();
             break;
         case WM_MOUSEMOVE:
-            if (GetCapture()==hWnd)
-            {
                 POINT p;
                 GetCursorPos(&p);
                 int dx= p.x - s_last_mouse.x;
@@ -963,7 +959,6 @@ LRESULT CALLBACK DraggableWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM
                     GetWindowRect(hWnd,&r);
                     SetWindowPos(hWnd,HWND_TOPMOST,r.left+dx,r.top+dy,0,0,SWP_NOSIZE|SWP_NOACTIVATE);
                 }
-            }
             break;
         case WM_LBUTTONUP:
             ReleaseCapture();

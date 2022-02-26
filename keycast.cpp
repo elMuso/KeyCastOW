@@ -160,7 +160,7 @@ void stamp(HWND hwnd, LPCWSTR text) {
     g.MeasureString(text, wcslen(text), fontPlus, layoutSize, &format, &stringSize);
     rc.Width = stringSize.Width;
     rc.Height = stringSize.Height;
-    SIZE wndSize = {2*labelSettings.borderSize+(LONG)rc.Width, 2*labelSettings.borderSize+(LONG)rc.Height};
+    SIZE wndSize = {2*labelSettings.borderSize+(rt.right/2), 2*labelSettings.borderSize+(LONG)(rt.top/2)};
     SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, wndSize.cx, wndSize.cy, SWP_NOMOVE|SWP_NOACTIVATE);
 
     SolidBrush bgBrush(Color::Color(0xaf007cfe));
@@ -945,25 +945,25 @@ LRESULT CALLBACK DraggableWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     {
         // hold mouse to move
         case WM_LBUTTONDOWN:
-            SetCapture(hWnd);
-            GetCursorPos(&s_last_mouse);
+            // SetCapture(hWnd);
+            // GetCursorPos(&s_last_mouse);
             // showTimer.Stop();
             break;
         case WM_MOUSEMOVE:
-            if (GetCapture()==hWnd)
-            {
-                POINT p;
-                GetCursorPos(&p);
-                int dx= p.x - s_last_mouse.x;
-                int dy= p.y - s_last_mouse.y;
-                if (dx||dy)
-                {
-                    s_last_mouse=p;
-                    RECT r;
-                    GetWindowRect(hWnd,&r);
-                    SetWindowPos(hWnd,HWND_TOPMOST,r.left+dx,r.top+dy,0,0,SWP_NOSIZE|SWP_NOACTIVATE);
-                }
-            }
+            // if (GetCapture()==hWnd)
+            // {
+            //     POINT p;
+            //     GetCursorPos(&p);
+            //     int dx= p.x - s_last_mouse.x;
+            //     int dy= p.y - s_last_mouse.y;
+            //     if (dx||dy)
+            //     {
+            //         s_last_mouse=p;
+            //         RECT r;
+            //         GetWindowRect(hWnd,&r);
+            //         SetWindowPos(hWnd,HWND_TOPMOST,r.left+dx,r.top+dy,0,0,SWP_NOSIZE|SWP_NOACTIVATE);
+            //     }
+            // }
             break;
         case WM_LBUTTONUP:
             // ReleaseCapture();

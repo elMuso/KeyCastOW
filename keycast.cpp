@@ -472,38 +472,14 @@ void GetWorkAreaByOrigin(const POINT &pt, MONITORINFO &mi) {
 }
 
 void positionOrigin(int action, POINT &pt) {
-    if (action == 0) {
-        updateCanvasSize(pt);
-
-        MONITORINFO mi;
-        GetWorkAreaByOrigin(pt, mi);
-        if(mi.rcWork.left != desktopRect.left || mi.rcWork.top != desktopRect.top) {
-            CopyMemory(&desktopRect, &mi.rcWork, sizeof(RECT));
-            MoveWindow(hMainWnd, desktopRect.left, desktopRect.top, 1, 1, TRUE);
-            createCanvas();
-            prepareLabels();
-        }
-#ifdef _DEBUG
-        std::stringstream line;
-        line << "rcWork: {" << mi.rcWork.left << "," <<  mi.rcWork.top << "," <<  mi.rcWork.right << "," <<  mi.rcWork.bottom << "};\n";
-        line << "desktopRect: {" << desktopRect.left << "," <<  desktopRect.top << "," <<  desktopRect.right << "," <<  desktopRect.bottom << "};\n";
-        line << "canvasSize: {" << canvasSize.cx << "," <<  canvasSize.cy << "};\n";
-        line << "canvasOrigin: {" << canvasOrigin.x << "," <<  canvasOrigin.y << "};\n";
-        line << "labelCount: " << labelCount << "\n";
-        log(line);
-#endif
-        WCHAR tmp[256];
-        swprintf(tmp, 256, L"%d, %d", pt.x, pt.y);
-        showText(tmp, 2);
-    } else {
         positioning = FALSE;
         deskOrigin.x = pt.x;
         deskOrigin.y = pt.y;
         updateCanvasSize(pt);
         clearColor.SetValue(0x007f7f7f);
         gCanvas->Clear(clearColor);
-    }
 }
+
 BOOL ColorDialog ( HWND hWnd, COLORREF &clr ) {
     DWORD dwCustClrs[16] = {
         RGB(0,0,0),
